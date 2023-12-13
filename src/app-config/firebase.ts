@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -11,5 +11,7 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const FirebaseAppSingleton = initializeApp(firebaseConfig);
+export const GoogleProviderSingleton = new GoogleAuthProvider();
+export const auth = getAuth(FirebaseAppSingleton);
+export const hasCurrentUser = () => Boolean(auth.currentUser);
