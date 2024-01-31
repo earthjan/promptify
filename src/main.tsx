@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 import routes from "./app-config/routes.ts";
 
