@@ -2,18 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import { createTheme, ThemeProvider } from "@mui/material";
-
+import { ThemeProvider } from "@mui/material";
 import routes from "./app-config/routes.ts";
-
 import App from "./App.tsx";
 import ProtectedRoute from "./components/organisms/ProtectedRoute.tsx";
-import Login from "./components/templates/Login/Login.tsx";
-
 import defaultTheme from "./theme/defaultTheme.ts";
-
 import "./index.css";
+import { Login } from "./pages/public/main.ts";
 
 const router = createBrowserRouter([
   {
