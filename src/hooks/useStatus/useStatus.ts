@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { UseStatusResult } from "./ts/use-status";
 import { StatusType } from "../../ts/api/main";
+import { Error } from "../../ts/error-center/error";
 
 /**
  * Controller to manage status

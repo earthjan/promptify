@@ -1,12 +1,16 @@
-import { Avatar, Stack, Typography, Button } from "@mui/material";
+import { Avatar, Stack, Typography } from "@mui/material";
 
 import GoogleIcon from "@mui/icons-material/Google";
 
 import pngs from "../../../../../assets/pngs/pngs";
 
 import packageJson from "../../../../../../package.json";
+import { LoadingButton } from "@mui/lab";
+import { LoginFormProps } from "../../../../../ts/components/templates/login/main";
 
-const LoginForm = () => {
+const LoginForm = (props: LoginFormProps) => {
+  const { onLoginWithGoogle, isLoading } = props;
+
   return (
     <Stack
       sx={{
@@ -33,14 +37,16 @@ const LoginForm = () => {
         <Typography>Sign in to create and manage your prompts!</Typography>
       </Stack>
 
-      <Button
+      <LoadingButton
         variant="contained"
         startIcon={<GoogleIcon />}
         fullWidth
+        loading={isLoading}
+        onClick={onLoginWithGoogle}
         sx={{ borderRadius: 5, my: 1 }}
       >
-        Sign in with Google
-      </Button>
+        Google
+      </LoadingButton>
       <Stack
         sx={{
           color: "text.secondary",

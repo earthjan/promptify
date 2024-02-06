@@ -5,6 +5,9 @@ const routes = {
   get main() {
     return "main";
   },
+  get default() {
+    return "*";
+  },
 };
 
 export default routes;

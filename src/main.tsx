@@ -3,12 +3,15 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
-import routes from "./app-config/routes.ts";
+import routes from "./app-config/routes/routes.ts";
 import App from "./App.tsx";
 import ProtectedRoute from "./components/organisms/ProtectedRoute.tsx";
 import defaultTheme from "./theme/defaultTheme.ts";
 import "./index.css";
 import { Login } from "./pages/public/main.ts";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import PublicRoute from "./components/organisms/PublicRoute.tsx";
+import PromptCreate from "./components/templates/PromptCreate/PromptCreate.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,11 +22,17 @@ const router = createBrowserRouter([
         children: [
           {
             path: routes.main,
-            element: <div>Test</div>,
+            element: <PromptCreate />,
           },
         ],
       },
-      { path: "/", element: <Login /> },
+      {
+        element: <PublicRoute />,
+        children: [
+          { path: routes.login, element: <Login /> },
+          { path: "*", element: <Login /> },
+        ],
+      },
     ],
   },
 ]);

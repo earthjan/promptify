@@ -1,20 +1,9 @@
-import { Box, Stack, Typography, Button } from "@mui/material";
-
-import { signInWithPopup, signOut as firebaseSignOut } from "firebase/auth";
-
-import { ErrorBoundary } from "react-error-boundary";
-
-import { Outlet, useNavigate } from "react-router-dom";
-
-import routes from "../../../app-config/routes";
-
-import { GoogleProviderSingleton, auth } from "../../..//app-config/firebase";
-import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { Stack } from "@mui/material";
 
 import LoginForm from "./components/organisms/LoginForm";
+import { LoginProps } from "../../../ts/components/templates/login/login";
 
-function Login() {
+function Login(props: LoginProps) {
   return (
     <Stack
       sx={{
@@ -24,7 +13,7 @@ function Login() {
         minHeight: "100vh",
       }}
     >
-      <LoginForm />
+      <LoginForm {...props} />
     </Stack>
   );
 }

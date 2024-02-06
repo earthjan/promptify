@@ -8,6 +8,6 @@ export interface Identity {
 }
 
 /**
- * Interface for auth crendential
+ * Interface for auth credential
  */
 export interface UserCredential extends Identity {}

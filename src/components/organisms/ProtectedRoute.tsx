@@ -6,21 +6,26 @@ import { CircularProgress } from "@mui/material";
 
 import QueryClientContext from "./QueryClientContext";
 
-import { hasCurrentUser, auth } from "../../app-config/firebase";
+import { auth } from "../../app-config/firebase";
 
 import { onAuthStateChanged } from "firebase/auth";
+import routes from "../../app-config/routes/routes";
 
-const ProtectedRoute = ({ redirectPath = "/" }) => {
+/**
+ * Parent component to encapsulate global configs for private routes.
+ */
+const ProtectedRoute = () => {
   const [content, setContent] = useState(<CircularProgress />);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user)
       if (user) {
         setContent(<Outlet />);
       } else {
-        navigate(redirectPath, { replace: true });
+        navigate(`/${routes.login}`, { replace: true });
       }
     });
 

@@ -1,35 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import TemplateLogin from "../../components/templates/Login/Login";
+import useLogin from "../../hooks/auth-provider/useLogin/useLogin";
+import routeHelpers from "../../app-config/routes/utils/routeHelpers";
 
 const Login = () => {
-  // const nav = useNavigate();
+  const nav = useNavigate();
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       nav("/" + routes.main);
-  //     }
-  //   });
+  const { login, ...loginStatus } = useLogin();
 
-  //   return () => unsubscribe();
-  // }, []);
+  const handleLoginWithGoogle = async () => {
+    await login().catch(() => console.error("Troubled working with Google"));
 
-  // const signInWithGoogle = async () => {
-  //   await signInWithPopup(auth, GoogleProviderSingleton)
-  //     .then(() => {
-  //       nav(routes.main);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
+    nav(routeHelpers.toMainPage());
+  };
 
-  // const signOut = async () => {
-  //   await firebaseSignOut(auth).catch((error) => {
-  //     console.error(error);
-  //   });
-  // };
-
-  return <TemplateLogin />;
+  return (
+    <TemplateLogin onLoginWithGoogle={handleLoginWithGoogle} {...loginStatus} />
+  );
 };
 
 export default Login;
