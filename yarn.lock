@@ -234,6 +234,11 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
+"@earthjan/promptify-types@1.0.0":
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@earthjan/promptify-types/1.0.0/37ed65d41431291ddb81319210bdd478b7d88091#37ed65d41431291ddb81319210bdd478b7d88091"
+  integrity sha512-9oa66xo6Bqwgc0CfVOKVG97HjztS1UNOpedOQDUFCfWD1iGa72uBtX5PA3yB5S/lesJYs1b4IsjFPBT6VUJwHA==
+
 "@emotion/babel-plugin@^11.11.0":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.11.0.tgz#c2d872b6a7767a9d176d007f5b31f7d504bb5d6c"

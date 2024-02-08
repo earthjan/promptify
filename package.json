@@ -23,6 +23,7 @@
     "react-router-dom": "^6.20.1"
   },
   "devDependencies": {
+    "@earthjan/promptify-types": "1.0.0",
     "@tanstack/react-query-devtools": "^5.13.5",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
