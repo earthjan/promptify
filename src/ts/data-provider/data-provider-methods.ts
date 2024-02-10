@@ -1,16 +1,17 @@
-import { GetList } from "./get-list";
+import { GetOne, GetList } from "./main";
 
 /**
- * Interface for the lowest level of database controller 
+ * Interface for the lowest level of database controller
  */
 export interface DataProvider {
-    getList: GetList
+  getList: GetList;
+  getOne: GetOne;
 }
 
 /**
  * Type for the shapes of data provider methods
  */
 export type DataProviderMethod<TParams, TResult> = (
-    collection: string,
-    params?: TParams
-  ) => Promise<TResult>;
+  collection: string,
+  params?: TParams
+) => Promise<TResult>;

@@ -10,8 +10,12 @@ import {
   MetaParam,
   SortParam,
 } from "./param";
+import { GetOne, GetOneParams, GetOneResult } from "./get-one";
 
 export type {
+  GetOne,
+  GetOneParams,
+  GetOneResult,
   PaginationParam,
   FilterObjectParam,
   FilterArrayParam,
