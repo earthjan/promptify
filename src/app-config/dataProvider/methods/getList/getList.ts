@@ -12,16 +12,20 @@ import {
 import getLastDocumentReference from "./utils/getLastDocumentReference";
 import { documentBaseKeys } from "../../../../ts/promptify-types/main";
 
+// TODO: Clean code by having a separate class to encapsulate query management.
+// TODO: Unit test this with firestore emulator
 const getList: DataProvider["getList"] = async (collection, params) => {
   const { pagination, filter, sort, meta } = params ?? {};
   const { field = documentBaseKeys.createdAt, order = "asc" } = sort ?? {};
   const { page = 1, pageSize = 5 } = pagination ?? {};
-  const { lastDocumentId } = meta ?? {};
-
-  console.log(lastDocumentId);
+  const { lastDocumentId, dataProviderType } = meta ?? {};
 
   const isFirstPage = page === 1;
 
+  if (!lastDocumentId && dataProviderType !== "getList")
+    throw new Error(
+      "If you intend to attach meta to this data provider, make sure you're specifying the `meta.dataProviderType` "
+    );
   if (lastDocumentId === undefined && !isFirstPage)
     throw new Error("`lastDocumentId` must be supplied  on subsequent pages");
 
