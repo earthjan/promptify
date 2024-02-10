@@ -21,7 +21,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.11",
-    "react-router-dom": "^6.20.1"
+    "react-router-dom": "^6.20.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@earthjan/promptify-types": "1.0.0",
@@ -29,6 +30,7 @@
     "@testing-library/react": "^14.2.1",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "@vitejs/plugin-react": "^4.2.0",
