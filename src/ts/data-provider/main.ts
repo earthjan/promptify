@@ -11,8 +11,12 @@ import {
   SortParam,
 } from "./param";
 import { GetOne, GetOneParams, GetOneResult } from "./get-one";
+import { CreateParams, Create, CreateResult } from "./create";
 
 export type {
+  CreateParams,
+  Create,
+  CreateResult,
   GetOne,
   GetOneParams,
   GetOneResult,

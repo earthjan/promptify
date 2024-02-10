@@ -1,9 +1,10 @@
 import { DataProvider } from "../../ts/data-provider/data-provider-methods";
-import { getList, getOne } from "./methods/main";
+import { getList, getOne, create } from "./methods/main";
 
 const dataProvider: DataProvider = {
   getList,
   getOne,
+  create,
 };
 
 export default dataProvider;
