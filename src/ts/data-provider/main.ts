@@ -12,8 +12,12 @@ import {
 } from "./param";
 import { GetOne, GetOneParams, GetOneResult } from "./get-one";
 import { CreateParams, Create, CreateResult } from "./create";
+import { Update, UpdateParams, UpdateResult } from "./update";
 
 export type {
+  Update,
+  UpdateParams,
+  UpdateResult,
   CreateParams,
   Create,
   CreateResult,

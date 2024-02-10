@@ -1,4 +1,4 @@
-import { GetOne, GetList, Create } from "./main";
+import { GetOne, GetList, Create, Update } from "./main";
 
 /**
  * Interface for the lowest level of database controller
@@ -7,6 +7,7 @@ export interface DataProvider {
   getList: GetList;
   getOne: GetOne;
   create: Create;
+  update: Update;
 }
 
 /**
