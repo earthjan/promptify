@@ -10,6 +10,7 @@ import { auth } from "../../app-config/firebase";
 
 import { onAuthStateChanged } from "firebase/auth";
 import routes from "../../app-config/routes/routes";
+import { CurrentUserContext } from "../../contexts/main";
 
 /**
  * Parent component to encapsulate global configs for private routes.
@@ -21,7 +22,6 @@ const ProtectedRoute = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user)
       if (user) {
         setContent(<Outlet />);
       } else {
@@ -32,7 +32,11 @@ const ProtectedRoute = () => {
     return () => unsubscribe();
   }, []);
 
-  return <QueryClientContext enableDevTool>{content}</QueryClientContext>;
+  return (
+    <QueryClientContext enableDevTool>
+      <CurrentUserContext>{content}</CurrentUserContext>
+    </QueryClientContext>
+  );
 };
 
 export default ProtectedRoute;
