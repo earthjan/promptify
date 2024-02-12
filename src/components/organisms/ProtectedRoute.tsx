@@ -11,6 +11,7 @@ import { auth } from "../../app-config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import routes from "../../app-config/routes/routes";
 import { CurrentUserContext } from "../../contexts/main";
+import { Layout } from "../molecules/main";
 
 /**
  * Parent component to encapsulate global configs for private routes.
@@ -34,7 +35,9 @@ const ProtectedRoute = () => {
 
   return (
     <QueryClientContext enableDevTool>
-      <CurrentUserContext>{content}</CurrentUserContext>
+      <CurrentUserContext>
+        <Layout>{content}</Layout>
+      </CurrentUserContext>
     </QueryClientContext>
   );
 };
