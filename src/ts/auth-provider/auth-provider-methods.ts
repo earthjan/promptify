@@ -1,9 +1,7 @@
-import { CheckAuth } from "./check-auth";
-import { Login } from "./login";
-import { Logout } from "./logout";
-
+import { GetCurrentUser, Logout, Login, CheckAuth } from "./main";
 export interface AuthProvider {
   login: Login;
   logout: Logout;
   checkAuth: CheckAuth;
+  getCurrentUser: GetCurrentUser;
 }
