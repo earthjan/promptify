@@ -3,6 +3,7 @@
  */
 export interface Identity {
   id: string;
+  profilePicture?: string;
   email?: string;
   displayName?: string;
 }

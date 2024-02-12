@@ -8,6 +8,7 @@ const getCurrentUser: AuthProvider["getCurrentUser"] = async () => {
     return {
       displayName: user.displayName ?? undefined,
       email: user.email ?? undefined,
+      profilePicture: user.photoURL ?? undefined,
       id: user.uid,
     };
   }
