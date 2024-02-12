@@ -13,9 +13,19 @@ import {
 import { GetOne, GetOneParams, GetOneResult } from "./get-one";
 import { CreateParams, Create, CreateResult } from "./create";
 import { Update, UpdateParams, UpdateResult } from "./update";
-import { Document, DocumentId, isDocument } from "./document";
+import {
+  Document,
+  DocumentId,
+  isDocument,
+  DocumentTimeStamp,
+} from "./collection/document";
+import { Prompt, Field, FieldType } from "./collection/prompts";
 
 export type {
+  Prompt,
+  Field,
+  FieldType,
+  DocumentTimeStamp,
   isDocument,
   Document,
   DocumentId,
