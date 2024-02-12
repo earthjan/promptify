@@ -1,6 +1,11 @@
-import { DataProviderMethod } from "./data-provider-methods";
-import { FilterParam, MetaParam, PaginationParam, SortParam } from "./param";
-import { DocumentBase } from "@earthjan/promptify-types";
+import {
+  Document,
+  FilterParam,
+  MetaParam,
+  PaginationParam,
+  SortParam,
+  DataProviderMethod,
+} from "./main";
 
 /**
  * Interface for params of `getList()` data provider
@@ -15,7 +20,7 @@ export interface GetListParams {
 /**
  * Interface for result of `getList()` data provider
  */
-export interface GetListResult<TData extends DocumentBase[] = any[]> {
+export interface GetListResult<TData extends Document[] = Document[]> {
   total: number;
   data: TData;
   hasNextPage?: boolean;

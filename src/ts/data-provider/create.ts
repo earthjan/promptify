@@ -1,17 +1,17 @@
-import { DocumentBase } from "@earthjan/promptify-types";
 import { MetaParam } from "./param";
-import { DataProviderMethod } from "./main";
+import { DataProviderMethod, Document } from "./main";
 /**
  * Interface for params of `create()` data provider
  */
-export interface CreateParams<TData extends DocumentBase = any> {
+export interface CreateParams<TData extends Document = Document> {
   data: TData;
   meta?: MetaParam;
 }
+
 /**
  * Interface for result of `create()` data provider
  */
-export interface CreateResult<TData extends DocumentBase = any> {
+export interface CreateResult<TData extends Document = Document> {
   data: TData;
 }
 

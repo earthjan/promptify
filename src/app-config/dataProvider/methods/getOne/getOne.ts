@@ -1,6 +1,8 @@
 import { DataProvider } from "../../../../ts/data-provider/data-provider-methods";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore as fs } from "../../../firebase";
+import { documentConverter } from "../../utils/main";
+import { dataProviderUtils } from "../../../../utils/main";
 
 // TODO: Unit test this with firestore emulator
 const getOne: DataProvider["getOne"] = async (collection, params) => {
@@ -19,11 +21,13 @@ const getOne: DataProvider["getOne"] = async (collection, params) => {
   if (!docId)
     throw new Error("Arg `id` undefined: Please, provide the document's id.");
 
-  const docRef = doc(fs, collection, docId);
+  const docRef = doc(fs, collection, docId).withConverter(documentConverter);
   const docSnapshot = await getDoc(docRef);
 
+  const fetchedDoc = docSnapshot.data();
+
   return {
-    data: docSnapshot.data(),
+    data: fetchedDoc ?? dataProviderUtils.generateEmptyDoc(),
   };
 };
 

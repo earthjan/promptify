@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import getLastDocumentReference from "./utils/getLastDocumentReference";
 import { documentBaseKeys } from "../../../../ts/promptify-types/main";
+import documentConverter from "../../utils/documentConverter";
 
 // TODO: Clean code by having a separate class to encapsulate query management.
 // TODO: Unit test this with firestore emulator
@@ -29,7 +30,9 @@ const getList: DataProvider["getList"] = async (collection, params) => {
   if (lastDocumentId === undefined && !isFirstPage)
     throw new Error("`lastDocumentId` must be supplied  on subsequent pages");
 
-  let listQuery = query(fsCollection(fs, collection));
+  let listQuery = query(
+    fsCollection(fs, collection).withConverter(documentConverter)
+  );
 
   if (filter) {
     if (Array.isArray(filter)) {

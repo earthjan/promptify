@@ -1,4 +1,4 @@
-import { DocumentId } from "@earthjan/promptify-types";
+import { DocumentId } from "./main";
 
 /**
  * Type for data set pagination
