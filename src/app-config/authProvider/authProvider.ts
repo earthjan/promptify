@@ -1,12 +1,11 @@
 import { AuthProvider } from "../../ts/auth-provider/main";
-import checkAuth from "./methods/checkAuth";
-import login from "./methods/login";
-import logout from "./methods/logout";
+import { login, logout, checkAuth, getCurrentUser } from "./methods/main";
 
 const authProvider: AuthProvider = {
   login,
   logout,
   checkAuth,
+  getCurrentUser,
 };
 
 export default authProvider;

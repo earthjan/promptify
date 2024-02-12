@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -15,3 +16,4 @@ export const FirebaseAppSingleton = initializeApp(firebaseConfig);
 export const GoogleProviderSingleton = new GoogleAuthProvider();
 export const auth = getAuth(FirebaseAppSingleton);
 export const hasCurrentUser = () => Boolean(auth.currentUser);
+export const firestore = getFirestore(FirebaseAppSingleton);

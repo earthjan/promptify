@@ -1,15 +1,12 @@
-import { signOut } from "firebase/auth";
-import React from "react";
-import { auth } from "../../../app-config/firebase";
+import { Typography } from "@mui/material";
+import { CurrentPromptContext } from "../../../contexts/main";
 
 function PromptCreate() {
-  const logout = async () => {
-    await signOut(auth).catch((error) => {
-      console.error(error);
-    });
-  };
-
-  return <button onClick={logout}>Logout</button>;
+  return (
+    <CurrentPromptContext>
+      <Typography>Prompt Create</Typography>
+    </CurrentPromptContext>
+  );
 }
 
 export default PromptCreate;
