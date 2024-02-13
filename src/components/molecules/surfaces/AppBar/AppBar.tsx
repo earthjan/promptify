@@ -26,9 +26,12 @@ import { Status } from "../../../../ts/api/status";
 import { useCurrentUserContext } from "../../../../contexts/main";
 import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
+import { AppBarProps } from "../../../../ts/components/molecules/main";
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function AppBar() {
+function AppBar(props: AppBarProps) {
+  const { items } = props;
+
   const { currentUser } = useCurrentUserContext();
   const theme = useTheme();
   const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
@@ -107,9 +110,16 @@ function AppBar() {
 
                       {!isLgUp && <Divider variant="inset" component="li" />}
 
-                      {settings.map((setting) => (
-                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                          <Typography textAlign="center">{setting}</Typography>
+                      {items.map(({ id, label, icon, onClick }) => (
+                        <MenuItem
+                          key={id}
+                          onClick={() => {
+                            if (onClick) onClick(id);
+                            handleCloseUserMenu();
+                          }}
+                        >
+                          {icon && <MenuIcon>{icon}</MenuIcon>}
+                          <Typography textAlign="center">{label}</Typography>
                         </MenuItem>
                       ))}
                     </Menu>

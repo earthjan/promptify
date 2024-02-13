@@ -1,11 +1,13 @@
-export interface DrawerItem {
-  id: string;
-  icon: JSX.Element;
-  label: string;
-  isSelected: boolean;
-  onClick?: (itemId: string) => void;
-}
+import {
+  ListItem,
+  ListItemMouseEvent,
+  ListItemSelection,
+} from "../data-display/list";
 
+export interface DrawerItem
+  extends ListItem,
+    ListItemSelection,
+    ListItemMouseEvent {}
 export interface DrawerProps {
   items: DrawerItem[];
 }

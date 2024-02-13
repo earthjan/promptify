@@ -13,6 +13,7 @@ import routes from "../../app-config/routes/routes";
 import { CurrentUserContext } from "../../contexts/main";
 import { Layout } from "../molecules/main";
 import ConstructionIcon from "@mui/icons-material/Construction";
+import { useLogout } from "../../hooks/main";
 
 /**
  * Parent component to encapsulate global configs for private routes.
@@ -23,6 +24,7 @@ const ProtectedRoute = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const { logout } = useLogout();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -40,6 +42,15 @@ const ProtectedRoute = () => {
     <QueryClientContext enableDevTool>
       <CurrentUserContext>
         <Layout
+          AppBarProps={{
+            items: [
+              {
+                id: "logout",
+                label: "Log out",
+                onClick: async () => await logout(),
+              },
+            ],
+          }}
           DrawerProps={{
             items: [
               {
