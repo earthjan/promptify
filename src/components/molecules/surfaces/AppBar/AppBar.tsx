@@ -97,16 +97,15 @@ function AppBar() {
                       onClose={handleCloseUserMenu}
                     >
                       {!isLgUp && (
-                        <>
-                          <ListItem>
-                            <ListItemText
-                              primary={currentUser.displayName}
-                              secondary={currentUser.email}
-                            />
-                          </ListItem>
-                          <Divider variant="inset" component="li" />
-                        </>
+                        <ListItem>
+                          <ListItemText
+                            primary={currentUser.displayName}
+                            secondary={currentUser.email}
+                          />
+                        </ListItem>
                       )}
+
+                      {!isLgUp && <Divider variant="inset" component="li" />}
 
                       {settings.map((setting) => (
                         <MenuItem key={setting} onClick={handleCloseUserMenu}>

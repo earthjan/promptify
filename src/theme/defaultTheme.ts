@@ -50,6 +50,12 @@ declare module "@mui/material/AppBar" {
   }
 }
 
+declare module "@mui/material/Drawer" {
+  interface AppBarPropsColorOverrides {
+    accent: true;
+  }
+}
+
 const colorCodes = {
   primary: "#1F1D2B",
   accent: "#252836",
@@ -67,6 +73,7 @@ const colorCodes = {
 
 const defaultTheme = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: colorCodes.primary,
       dark: "#0b0a0f",
@@ -130,6 +137,21 @@ const defaultTheme = createTheme({
     },
   },
   components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: colorCodes.accent,
+        },
+      },
+    },
+    MuiAppBar: {
+      defaultProps: { elevation: 0 },
+      styleOverrides: {
+        root: {
+          backgroundColor: colorCodes.accent,
+        },
+      },
+    },
     MuiIconButton: {
       defaultProps: {
         color: "titleText",

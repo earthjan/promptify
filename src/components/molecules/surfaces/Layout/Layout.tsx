@@ -1,9 +1,16 @@
 import { Box, Stack } from "@mui/material";
-import { AppBar } from "../../main";
+import { AppBar, Drawer } from "../../main";
 import { PropsWithChildren } from "react";
+import { DrawerProps } from "../../../../ts/components/molecules/main";
+import { useTheme } from "@mui/material";
+import { SPACING } from "../../../../constants/styles";
 
-const Layout = (props: PropsWithChildren) => {
-  const { children } = props;
+interface LayoutProps {
+  DrawerProps: DrawerProps;
+}
+
+const Layout = (props: PropsWithChildren<LayoutProps>) => {
+  const { children, DrawerProps } = props;
 
   return (
     <Box
@@ -11,19 +18,11 @@ const Layout = (props: PropsWithChildren) => {
         display: "flex",
       }}
     >
-      <Box
-        sx={{
-          minWidth: "250px",
-          height: "100vh",
-          backgroundColor: "accent.main",
-        }}
-      >
-        Drawer
-      </Box>
+      <Drawer {...DrawerProps} />
 
       <Stack sx={{ flex: 1 }}>
         <AppBar />
-        {children}
+        <Stack sx={{ p: SPACING }}>{children}</Stack>
       </Stack>
     </Box>
   );
