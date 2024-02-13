@@ -7,6 +7,7 @@ import pngs from "../../../../../assets/pngs/pngs";
 import packageJson from "../../../../../../package.json";
 import { LoadingButton } from "@mui/lab";
 import { LoginFormProps } from "../../../../../ts/components/templates/login/main";
+import { Promptify } from "../../../../atoms/main";
 
 const LoginForm = (props: LoginFormProps) => {
   const { onLoginWithGoogle, isLoading } = props;
@@ -25,9 +26,7 @@ const LoginForm = (props: LoginFormProps) => {
     >
       <Stack sx={{ alignItems: "center", rowGap: 1 }}>
         <Avatar src={pngs.PromptifyTabIcon} variant="rounded" />
-        <Typography color="secondary.main" fontWeight="bold">
-          Promptify
-        </Typography>
+        <Promptify size="small" />
       </Stack>
 
       <Stack sx={{ alignItems: "center", rowGap: 1, my: 1 }}>
