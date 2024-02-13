@@ -9,8 +9,20 @@ const routes = {
     return "*";
   },
   get myPrompts() {
-    return "my-prompts"
-  }
+    return "my-prompts";
+  },
+  get promptList() {
+    return "list";
+  },
+  get createPrompt() {
+    return "create";
+  },
+  get showPrompt() {
+    return "show";
+  },
+  get editPrompt() {
+    return "edit";
+  },
 };
 
 export default routes;

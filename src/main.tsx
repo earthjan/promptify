@@ -11,7 +11,11 @@ import "./index.css";
 import { Login } from "./pages/public/main.ts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import PublicRoute from "./components/organisms/PublicRoute.tsx";
-import PromptCreate from "./components/templates/PromptCreate/PromptCreate.tsx";
+import {
+  MyPrompts,
+  MyPromptsList,
+  CreatePrompt,
+} from "./pages/private/main.ts";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +25,17 @@ const router = createBrowserRouter([
         element: <ProtectedRoute />,
         children: [
           {
-            path: routes.main,
-            element: <PromptCreate />,
+            element: <MyPrompts />,
+            children: [
+              {
+                path: routes.myPrompts,
+                element: <MyPromptsList />,
+              },
+              {
+                path: `/${routes.myPrompts}/${routes.createPrompt}`,
+                element: <CreatePrompt />,
+              },
+            ],
           },
           {
             path: routes.default,
