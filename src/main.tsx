@@ -24,6 +24,10 @@ const router = createBrowserRouter([
             path: routes.main,
             element: <PromptCreate />,
           },
+          {
+            path: routes.default,
+            element: <div style={{ color: "white" }}>Page not found..</div>,
+          },
         ],
       },
       {

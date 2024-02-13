@@ -8,6 +8,9 @@ const routes = {
   get default() {
     return "*";
   },
+  get myPrompts() {
+    return "my-prompts"
+  }
 };
 
 export default routes;

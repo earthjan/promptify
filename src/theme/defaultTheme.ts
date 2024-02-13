@@ -34,6 +34,7 @@ declare module "@mui/material/IconButton" {
   interface IconButtonPropsColorOverrides {
     accent: true;
     secondary: true;
+    titleText: true;
   }
 }
 
@@ -49,8 +50,15 @@ declare module "@mui/material/AppBar" {
   }
 }
 
+declare module "@mui/material/Drawer" {
+  interface AppBarPropsColorOverrides {
+    accent: true;
+  }
+}
+
 const colorCodes = {
   primary: "#1F1D2B",
+  accent: "#252836",
   textPrimary: {
     primary: "#FFFFFF",
     dark: "##e6e6e6",
@@ -65,6 +73,7 @@ const colorCodes = {
 
 const defaultTheme = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: colorCodes.primary,
       dark: "#0b0a0f",
@@ -78,7 +87,7 @@ const defaultTheme = createTheme({
       contrastText: colorCodes.primary,
     },
     accent: {
-      main: "#252836",
+      main: colorCodes.accent,
       dark: "#15161e",
       light: "#34384c",
       contrastText: colorCodes.textPrimary.primary,
@@ -128,9 +137,45 @@ const defaultTheme = createTheme({
     },
   },
   components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: colorCodes.accent,
+        },
+      },
+    },
+    MuiAppBar: {
+      defaultProps: { elevation: 0 },
+      styleOverrides: {
+        root: {
+          backgroundColor: colorCodes.accent,
+        },
+      },
+    },
+    MuiIconButton: {
+      defaultProps: {
+        color: "titleText",
+      },
+    },
     MuiButton: {
       defaultProps: {
+        variant: "contained",
         color: "secondary",
+      },
+      styleOverrides: {
+        root: {
+          borderRadius: "50px",
+          fontWeight: "bold",
+        },
+      },
+    },
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          border: "1px solid #fff",
+          borderRadius: "5px",
+          backgroundColor: colorCodes.accent,
+        },
       },
     },
   },
